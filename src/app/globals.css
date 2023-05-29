@@ -70,6 +70,44 @@
     --callout-border-rgb: 108, 108, 108;
     --card-rgb: 100, 100, 100;
     --card-border-rgb: 200, 200, 200;
+
+    --button-shadow: drop-shadow(0px 9.27273px 18.5455px rgba(136, 7, 247, 0.12));
+    --profile-picture-shadow: 0px 4px 10px rgba(136, 7, 247, 0.07);
+    --box-shadow: 0px 10px 35px rgba(6, 46, 253, 0.25), 0px 15px 70px rgba(251, 64, 64, 0.25), 0px 30px 90px rgba(136, 7, 247, 0.5);
+    --box-shadow-2: drop-shadow(0px 12px 24px rgba(10, 7, 12, 0.1));
+    --gradient-color: linear-gradient(360deg, #030303 30%, rgba(3, 3, 3, 0) 100%, #030303 100%);
+
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-grey: #9CA3AF;
+    --color-grey-2: #F9FAFB;
+    --color-teal: #0D9488;
+    --color-green: #D2FFDE;
+    --color-green-2: #33593D;
+    --color-green-3: #2A332C;
+    --color-purple: #C8C1FD;
+    --color-purple-2: #35298A;
+    --color-purple-3: #282733;
+    --color-purple-4: #FAF5FF;
+    --color-gold: #FAF7C3;
+    --color-gold-2: #9F9704;
+    --color-gold-3: #333228;
+    --color-pink-1: #FDEDF2;
+    --color-blue: #2563EB;
+    --color-blue-2: #F1F5FE;
+    --color-orange: #F59E0B;
+    --color-1: #240053;
+    --color-2: #8807F7;
+    --color-3: #D6ABFC;
+    --color-4: #FFEAFA;
+    --color-5: #3D0072;
+    --color-6: #FFFDF2;
+    --color-7: #E8356D;
+    --color-8: #29014B;
+    --color-9: #F3F4F6;
+    --color-10: #F8FAFC;
+    --color-11: #1B0132;
+    --title-color: linear-gradient(91.7deg, #FFEB35 7.5%, rgba(25, 253, 130, 0.99) 107.24%);
   }
 }
 
@@ -86,13 +124,14 @@ body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--color-white);
+  background: var(--color-1);
+  font-size: 12px;
+  font-family: 'Cabinet Grotesk';
+}
+
+p {
+  line-height: 32px;
 }
 
 a {
@@ -100,8 +139,50 @@ a {
   text-decoration: none;
 }
 
+h1 {
+  font-weight: 900;
+  font-size: 95px;
+}
+
+h2 {
+  font-weight: 900;
+  font-size: 80px;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+h4 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: local("Cabinet Grotesk"),
+   url("../assets/fonts/CabinetGrotesk-Regular.ttf") format("truetype");
+   font-weight: normal;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: local("Cabinet Grotesk"),
+   url("../assets/fonts/CabinetGrotesk-Bold.ttf") format("truetype");
+   font-weight: 700;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: local("Cabinet Grotesk"),
+   url("../assets/fonts/CabinetGrotesk-Black.ttf") format("truetype");
+   font-weight: 900;
 }
