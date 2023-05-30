@@ -1,5 +1,5 @@
 'use client'
-import { accessData, careerLandingData, cultureData, faqData, howItWorks, interestTimeData, interestValues, peopleData, products, supportersData, tractionData, trustData, valuesData } from '@/assets/data'
+import { accessData, careerLandingData, cultureData, faqData, hireData, howItWorks, interestTimeData, interestValues, peopleData, perksData, products, rolesData, supportersData, tractionData, trustData, valuesData } from '@/assets/data'
 import NavigationComponent from '@/components/navigation'
 import Box from '@mui/material/Box';
 // styles
@@ -11,7 +11,10 @@ import InputWidget from '@/assets/widgets/input';
 import { InterestStyle } from '@/styles/interest';
 import culture from '@/assets/images/culture.png'
 import play from '@/assets/images/play.png'
+import image from '@/assets/images/image.png'
+import perksBackground from '@/assets/images/perks-background.png'
 import bullet from '@/assets/icons/bullet.svg'
+import code from '@/assets/icons/code.svg'
 import { formatNumber, percentage } from '@/assets/functions';
 import { HomeStyle } from '@/styles/home';
 import moment from 'moment';
@@ -107,6 +110,62 @@ const Home = () => {
             ))}
           </PageStyle.grid>
         </CareerStyle.peopleWrapper>
+      </PageStyle.section>
+      
+      <PageStyle.section type='career' center spacing={4} backgroundColor='var(--color-12)' color='var(--color-white)'>
+        <CareerStyle.perksSubtitle>Beyond a competitive salary, we offer so much more in support and necessary tools needed to get the best results.</CareerStyle.perksSubtitle>
+        <CareerStyle.perksTitle>Perks</CareerStyle.perksTitle>
+        <CareerStyle.perksList backgroundImage={perksBackground}>
+          <PageStyle.grid amount={3} spacing='50px'>
+            {perksData.map((item, index) => (
+              <CareerStyle.perk key={index}>
+                <CareerStyle.perksIcon src={item.icon} alt='' />
+                <CareerStyle.perkTitle>{item.title}</CareerStyle.perkTitle>
+                <p>{item.description}</p>
+              </CareerStyle.perk>
+            ))}
+          </PageStyle.grid>
+        </CareerStyle.perksList>
+      </PageStyle.section>
+      
+      <PageStyle.section type='career' spacing={5} backgroundColor='var(--color-white)' color='var(--color-5)'>
+        <CareerStyle.valuesTitle>Open Positions</CareerStyle.valuesTitle>
+        <CareerStyle.roles>
+          <PageStyle.grid spacing='60px'>
+            {rolesData.map((item, index) => (
+              <CareerStyle.role key={index} backgroundImage={item.background}>
+                <CareerStyle.roleTitle>{item.title}</CareerStyle.roleTitle>
+                <CareerStyle.roleDescription>Oh no...Position currently filled, check back later! To make sure you don&pos;t miss any update subscribe to our newsletter.</CareerStyle.roleDescription>
+                <b>Position Closed</b>
+              </CareerStyle.role>
+            ))}
+          </PageStyle.grid>
+        </CareerStyle.roles>
+        <CareerStyle.roleIndicators>
+          <PageStyle.grid amount={3} spacing='20px'>
+            {Array(3).fill('').map((item, index) => <CareerStyle.roleIndicator key={index} alt={index === 0} />)}
+          </PageStyle.grid>
+        </CareerStyle.roleIndicators>
+        <CareerStyle.roleIcon src={code} alt='role' />
+      </PageStyle.section>
+      
+      <PageStyle.section type='career' spacing={6} backgroundColor='var(--color-9)' color='var(--color-5)'>
+        <CareerStyle.valuesTitle>How We Hire</CareerStyle.valuesTitle>
+        <CareerStyle.roles>
+          <PageStyle.grid amount={3} spacing='70px'>
+            {hireData.map((item, index) => (
+              <CareerStyle.perk key={index}>
+                <CareerStyle.perksIcon src={item.icon} alt='' />
+                <CareerStyle.perkTitle alt>{item.title}</CareerStyle.perkTitle>
+                <CareerStyle.hireParagraph>{item.description}</CareerStyle.hireParagraph>
+              </CareerStyle.perk>
+            ))}
+          </PageStyle.grid>
+        </CareerStyle.roles>
+      </PageStyle.section>
+      
+      <PageStyle.section type='career' spacing={7} backgroundColor='var(--color-white)'>
+        <CareerStyle.image src={image} alt='' />
       </PageStyle.section>
 
       <FooterComponent />

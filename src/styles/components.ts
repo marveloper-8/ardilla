@@ -1,14 +1,17 @@
-import { FooterRules, NavigationRules, TabImageRules } from "@/assets/rules";
 import Image from 'next/image'
 import styled from "styled-components";
+// types
+import { FooterRules, NavigationRules, TabImageRules } from "@/assets/rules";
 
 export const NavigationStyle = {
   wrapper: styled.nav<NavigationRules>`
-    padding: 20px 135px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${props => props.alt && `background: var(--color-2);`}
+    ${props => `
+      ${props.alt && `background: var(--color-2)`};
+      ${props.landing ? 'margin-bottom: 108px' : `padding: 20px 135px`};
+    `};
   `,
   section: styled.section`
     display: flex;
@@ -24,9 +27,17 @@ export const NavigationStyle = {
 };
 
 export const FooterStyle = {
-  wrapper: styled.footer`
-    padding: 0 150px 40px 150px;
-    background: var(--color-2);
+  wrapper: styled.footer<FooterRules>`
+    ${props => `
+      ${props.alt ? `
+        color: var(--color-2);
+        padding: 115px 135px 75px 135px;
+        background-color: var(--color-white);
+      ` : `
+        padding: 0 150px 40px 150px;
+        background: var(--color-2);
+      `}
+    `};
   `,
   downloadWrapper: styled.div<FooterRules>`
     display: flex;
@@ -86,9 +97,11 @@ export const FooterStyle = {
     margin-left: 15px;
     font-size: 5px;
   `,
-  bottom: styled.div`
-    border-top: 1px solid var(--color-grey);
-    padding-top: 25px;
+  bottom: styled.div<FooterRules>`
+    ${props => !props.alt && `
+      border-top: 1px solid var(--color-grey);
+      padding-top: 25px;
+    `};
   `,
   copyrightSocials: styled.div`
     display: flex;

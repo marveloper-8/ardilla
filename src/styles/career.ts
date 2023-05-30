@@ -109,17 +109,90 @@ export const CareerStyle = {
     height: 60px;
     cursor: pointer;
   `,
-  background: styled.div`
-  /* shape */
 
-  position: absolute;
-  width: 1355px;
-  height: 835px;
-  left: 0px;
-  top: 0px;
-  
-  background: #F6EBFE;
-  border-radius: 50px;
-  
+  perksSubtitle: styled.p`
+    font-size: 40px;
+    line-height: 80px;
+    padding: 0 22.5%;
+    margin-bottom: 140px;
+  `,
+  perksTitle: styled.h3`
+    font-size: 50px;
+    transform: rotate(7.67deg);
+  `,
+  perksList: styled.div<TabRules>`
+    padding: 180px 210px 100px 210px;
+    ${props => `
+      ${props.backgroundImage && `
+        background-image: url(${props.backgroundImage.src});
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        // background-origin: content-box;
+      `};
+    `};
+  `,
+  perksIcon: styled(Image)`
+    height: 30px;
+    width: auto;
+  `,
+  perkTitle: styled.h3<CareerRules>`
+    font-size: 20px;
+    ${props => `
+      padding: ${props.alt ? '25px 0 20px 0' : '10px 0'};
+    `};
+  `,
+  perk: styled.div`
+    text-align: left;
+    color: var(--color-5);
+  `,
+
+  roles: styled.div`
+    padding: 100px 0 50px 0;
+  `,
+  roleTitle: styled.h3`
+    font-size: 32px;
+  `,
+  roleDescription: styled.p`
+    padding: 40px 0;
+  `,
+  role: styled.div<TabRules>`
+    padding: 50px;
+    border-radius: 16px;
+    color: var(--color-black);
+    ${props => `
+      ${props.backgroundImage && `
+        background-image: url(${props.backgroundImage.src});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        // background-origin: content-box;
+      `};
+    `};
+  `,
+  roleIndicators: styled.div`
+    margin-bottom: 30px;
+  `,
+  roleIndicator: styled.div<CareerRules>`
+    height: 4px;
+    border-radius: 16px;
+    ${props => `
+      background: ${props.alt ? 'var(--color-2)' : 'var(--color-9)'};
+    `};
+  `,
+  roleIcon: styled(Image)`
+    height: 30px;
+    width: auto;
+    margin-top: 32px;
+  `,
+
+  hireParagraph: styled.p`
+    line-height: 40px;
+    font-size: 16px;
+  `,
+
+  image: styled(Image)`
+    height: 600px;
+    width: auto;
   `,
 };

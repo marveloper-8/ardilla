@@ -76,6 +76,8 @@
     --box-shadow: 0px 10px 35px rgba(6, 46, 253, 0.25), 0px 15px 70px rgba(251, 64, 64, 0.25), 0px 30px 90px rgba(136, 7, 247, 0.5);
     --box-shadow-2: drop-shadow(0px 12px 24px rgba(10, 7, 12, 0.1));
     --gradient-color: linear-gradient(360deg, #030303 30%, rgba(3, 3, 3, 0) 100%, #030303 100%);
+    --gradient-color-2: linear-gradient(139.74deg, #520BB3 49.68%, #EA00BE 107.05%);
+    --gradient-color-3: linear-gradient(105.27deg, #530CB4 19.49%, #EA00BE 129.84%);
 
     --color-white: #ffffff;
     --color-black: #000000;
@@ -107,6 +109,7 @@
     --color-9: #F3F4F6;
     --color-10: #F8FAFC;
     --color-11: #1B0132;
+    --color-12: #21003D;
     --title-color: linear-gradient(91.7deg, #FFEB35 7.5%, rgba(25, 253, 130, 0.99) 107.24%);
   }
 }
@@ -167,22 +170,43 @@ h4 {
 }
 
 @font-face {
+  font-family: "Clash Display";
+  src: local("Clash Display"),
+   url("../assets/fonts/ClashDisplay/ClashDisplay-Regular.ttf") format("truetype");
+   font-weight: normal;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: local("Clash Display"),
+   url("../assets/fonts/ClashDisplay/ClashDisplay-Semibold.ttf") format("truetype");
+   font-weight: 700;
+}
+
+@font-face {
+  font-family: "Clash Display";
+  src: local("Clash Display"),
+   url("../assets/fonts/ClashDisplay/ClashDisplay-Bold.ttf") format("truetype");
+   font-weight: 900;
+}
+
+@font-face {
   font-family: "Cabinet Grotesk";
   src: local("Cabinet Grotesk"),
-   url("../assets/fonts/CabinetGrotesk-Regular.ttf") format("truetype");
+   url("../assets/fonts/CabinetGrotesk/CabinetGrotesk-Regular.ttf") format("truetype");
    font-weight: normal;
 }
 
 @font-face {
   font-family: "Cabinet Grotesk";
   src: local("Cabinet Grotesk"),
-   url("../assets/fonts/CabinetGrotesk-Bold.ttf") format("truetype");
+   url("../assets/fonts/CabinetGrotesk/CabinetGrotesk-Bold.ttf") format("truetype");
    font-weight: 700;
 }
 
 @font-face {
   font-family: "Cabinet Grotesk";
   src: local("Cabinet Grotesk"),
-   url("../assets/fonts/CabinetGrotesk-Black.ttf") format("truetype");
+   url("../assets/fonts/CabinetGrotesk/CabinetGrotesk-Black.ttf") format("truetype");
    font-weight: 900;
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from 'next/image'
 import { AiFillCaretDown, AiOutlineDown } from "react-icons/ai";
-import { ButtonRules, GridRules, HeaderRules, IconRules, SectionRules, TextRules } from "@/assets/rules";
+import { ButtonRules, GridRules, HeaderRules, IconRules, LabelRules, SectionRules, TextRules } from "@/assets/rules";
 
 export const PageStyle = {
   page: styled.main`
@@ -9,13 +9,18 @@ export const PageStyle = {
   `,
   section: styled.section<SectionRules>`
     ${props => `
+      position: relative;
       ${props.backgroundImage && `
         background-image: url(${props.backgroundImage.src});
-        background-position: right bottom;
-        background-size: 70%;
         background-repeat: no-repeat;
         background-clip: border-box;
-        background-origin: content-box;
+        ${props.type === 'landing' ? `
+          background-size: cover;
+        ` : `
+          background-position: right bottom;
+          background-size: 70%;
+          background-origin: content-box;
+        `};
       `};
       ${props.curved && `border-radius: 32px 32px 0px 0px`};
       ${props.backgroundColor && `background-color: ${props.backgroundColor}`};
@@ -27,13 +32,28 @@ export const PageStyle = {
         flex-direction: column;
       `};
       ${props.center && `text-align: center`};
-      ${props.type === 'career' ? `
+      ${props.type === 'landing' ? `
+        ${props.spacing === 1 ? `
+          padding: 85px 0 0 135px;
+        ` : `
+          padding: 70px 115px 245px 130px;
+        `};
+      ` : props.type === 'career' ? `
         ${props.spacing === 1 ? `
           padding: 0;
         ` : props.spacing === 2 ? `
           padding: 120px 135px 150px 135px;
         ` : props.spacing === 3 ? `
           padding: 120px 125px;
+        ` : props.spacing === 4 ? `
+          padding: 155px 45px 0 45px;
+        ` : props.spacing === 5 ? `
+          padding: 120px 145px 125px 130px;
+        ` : props.spacing === 6 ? `
+          padding: 140px 145px 220px 135px;
+        ` : props.spacing === 7 ? `
+          padding: 137px 136px 370px 120px;
+          text-align: center;
         ` : `
           padding: 135px 20% 165px 20%;
         `};
@@ -62,6 +82,7 @@ export const PageStyle = {
           padding: 65px 260px 0 260px;
         `};
       `};
+      ${props.type === 'landing' && 'font-family: "Clash Display"'};
     `};
   `,
   grid: styled.div<GridRules>`
@@ -104,6 +125,18 @@ export const TextStyle = {
   `,
   text: styled.a<TextRules>`
     ${props => `
+      ${props.backgroundImage && `
+        background-image: url(${props.backgroundImage.src});
+        background-repeat: no-repeat;
+        background-clip: border-box;
+        ${props.type === 'landing' ? `
+          background-size: cover;
+        ` : `
+          background-position: right bottom;
+          background-size: 70%;
+          background-origin: content-box;
+        `};
+      `};
       ${props.color && `color: ${props.color}`};
       ${props.background && `
         background: ${props.background};
@@ -138,6 +171,10 @@ export const AssetsStyle = {
       ` : `
         width: 15px;
         height: 15px;
+      `};
+      ${props.alt2 && `
+        height: 20px;
+        width: auto;
       `};
     `};
   `,
@@ -197,15 +234,35 @@ export const AssetsStyle = {
         padding: 20px 16px;
         margin-top: 25px;
         border-radius: 8px;
+      ` : props.spacing === 4 ? `
+        padding: 20px 30px;
+        font-weight: bolder;
+        font-size: 14px;
+        font-family: 'Clash Display';
       ` : `
         padding: 15px 38px;
       `};
     `};
   `,
-  label: styled.label`
+  input: styled.input`
+    background: none;
+    width: 100%;
+    font-family: 'Clash Display';
+    font-size: 14px;
+    outline: none;
+    border: none;
+    padding: 20px 30px;
+    &:placeholder{
+      color: var(--color-grey);
+    };
+  `,
+  label: styled.label<LabelRules>`
     align-items: center;
     display: flex;
-    gap: 15px;
+    white-space: nowrap;
+    ${props => `
+      ${props.alt ? 'gap: 2px' : 'gap: 15px'};
+    `};
   `,
   profilePictureWrapper: styled.div`
     background: var(--color-3);

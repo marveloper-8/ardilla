@@ -24,6 +24,30 @@ import values2 from './images/values.2.png'
 import values3 from './images/values.3.png'
 import values4 from './images/values.4.png'
 import people from './images/people.png'
+import perk1 from './icons/perk.1.svg'
+import perk2 from './icons/perk.2.svg'
+import perk3 from './icons/perk.3.svg'
+import perk4 from './icons/perk.4.svg'
+import perk5 from './icons/perk.5.svg'
+import perk6 from './icons/perk.6.svg'
+import role1 from './images/role.1.png'
+import role2 from './images/role.2.png'
+import role3 from './images/role.3.png'
+import role4 from './images/role.4.png'
+import hire1 from './icons/hire.1.svg'
+import hire2 from './icons/hire.2.svg'
+import hire3 from './icons/hire.3.svg'
+import expectations1 from './images/expectations.1.png'
+import expectations2 from './images/expectations.2.png'
+import expectations3 from './images/expectations.3.png'
+import expectations4 from './images/expectations.4.png'
+import expectations5 from './images/expectations.5.png'
+import expectations6 from './images/expectations.6.png'
+import expectations7 from './images/expectations.7.png'
+import expectations8 from './images/expectations.8.png'
+import instagram2 from './icons/instagram.2.svg'
+import facebook2 from './icons/facebook.2.svg'
+import twitter2 from './icons/twitter.2.svg'
 
 export const primaryMenuItems = [
   {
@@ -218,6 +242,21 @@ export const socialsData = [
   }
 ]
 
+export const socialsData2 = [
+  {
+    logo: instagram2,
+    name: 'Instagram'
+  },
+  {
+    logo: facebook2,
+    name: 'Facebook'
+  },
+  {
+    logo: twitter2,
+    name: 'Twitter'
+  }
+]
+
 export const interestTimeData = [
   {
     label: 'Monthly',
@@ -381,5 +420,122 @@ export const peopleData = [
     name: 'Anita Ojieh',
     position: 'Product Manager',
     coomment: 'Although Ardilla is challenging, it is the type of challenge that gets you motivated.'
+  },
+]
+
+export const perksData = [
+  {
+    icon: perk1,
+    title: 'Its a vibe',
+    description: 'Our work culture is a vibe and more.'
+  },
+  {
+    icon: perk2,
+    title: 'Cool gadgets',
+    description: 'You get to work with cool new gadgets.'
+  },
+  {
+    icon: perk3,
+    title: 'Health benefits',
+    description: 'We know health is important. So we provided easy access and affordable health benefits.'
+  },
+  {
+    icon: perk4,
+    title: 'Team Bounding',
+    description: 'We always make out time for fun and getting to know your team mates better.'
+  },
+  {
+    icon: perk5,
+    title: 'Diversity',
+    description: 'We promote diversity of ideas and people. Anyone from anywhere is welcome.'
+  },
+  {
+    icon: perk6,
+    title: 'Education and career progression',
+    description: 'We offer you opportunities to grow, learn, and advance in your career.'
+  },
+]
+
+export const rolesData = [
+  {
+    background: role1,
+    title: 'Design',
+    closed: true
+  },
+  {
+    background: role2,
+    title: 'Engineering',
+    closed: true
+  },
+  {
+    background: role3,
+    title: 'Content Writer',
+    closed: true
+  },
+  {
+    background: role4,
+    title: 'Financial Advisor',
+    closed: true
+  },
+]
+
+export const hireData = [
+  {
+    icon: hire1,
+    title: 'Application',
+    description: 'Send in your applications and if you are a good fit, we will schedule an interview.'
+  },
+  {
+    icon: hire2,
+    title: 'Hiring Managers Interview',
+    description: 'The interview comprises a chat or two with the hiring manager and your department team lead about your suitability and skills for the role.'
+  },
+  {
+    icon: hire3,
+    title: 'Feedback',
+    description: 'When the process is complete, we give you feedback on your performance and we let you know if you have been selected.'
+  },
+]
+
+export const expectationsData = [
+  {
+    title: 'Access to more financial tools',
+    backgroundImage: expectations1,
+    alt: false
+  },
+  {
+    title: 'More investment opportunities',
+    backgroundImage: expectations2,
+    alt: false
+  },
+  {
+    title: 'More Savings',
+    backgroundImage: expectations3,
+    alt: false
+  },
+  {
+    title: 'Join a passionate wealth building community',
+    backgroundImage: expectations4,
+    alt: false
+  },
+  {
+    title: 'Free financial advice from vetted financial coaches',
+    backgroundImage: expectations5,
+    alt: false
+  },
+  {
+    title: 'Build wealth without compromising your belief',
+    backgroundImage: expectations6,
+    alt: true
+  },
+  {
+    title: 'Pro budgeting guide',
+    backgroundImage: expectations7,
+    alt: false
+  },
+  {
+    title: 'Get your unique San ID',
+    backgroundImage: expectations8,
+    alt: false
   },
 ]

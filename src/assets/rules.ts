@@ -40,6 +40,7 @@ export interface GridRules {
 export interface TextRules {
   color?: string | null,
   background?: string | null,
+  backgroundImage?: StaticImageData | null,
 }
 
 export interface HeaderRules {
@@ -49,6 +50,11 @@ export interface HeaderRules {
 export interface IconRules {
   type?: number | string | null,
   alternative?: boolean | null,
+  alt2?: boolean,
+}
+
+export interface LabelRules {
+  alt?: boolean,
 }
 
 export interface TabImageRules {
@@ -64,6 +70,7 @@ export interface TabRules {
 
 export interface FooterRules {
   offset?: number | null,
+  alt?: boolean
 }
 
 export interface InputRules {
@@ -104,7 +111,8 @@ export interface FAQRules {
 }
 
 export interface NavigationRules {
-  alt?: boolean
+  alt?: boolean,
+  landing?: boolean
 }
 
 export interface CareerRules {
@@ -114,4 +122,8 @@ export interface CareerRules {
 export interface CareerTextRules {
   color: string,
   shift: number
+}
+
+export interface LandingRules {
+  offset?: number
 }
