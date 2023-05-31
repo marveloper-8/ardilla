@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import Image from 'next/image'
-import { InterestsItemRules, TabImageRules, TabRules } from "@/assets/rules";
+// types
+import { InterestsItemRules, TabRules } from "@/assets/rules";
 
 export const InterestStyle = {
   calculator: styled.form`
     padding-right: 225px;
+    @media screen and (max-width: 1200px){
+      padding: 0;
+    };
   `,
   submitButton: styled.button`
     display: none;
@@ -14,6 +18,9 @@ export const InterestStyle = {
     border-radius: 16px 16px 0 0;
     background: var(--color-white);
     color: var(--color-grey);
+    @media screen and (max-width: 1200px){
+      padding: 30px;
+    };
   `,
   calculatorPreviewItem: styled.div`
     margin-bottom: 30px;
@@ -43,12 +50,20 @@ export const InterestStyle = {
     color: var(--color-5);
   `,
 
+
   heading1: styled.h3`
     font-size: 60px;
+    @media screen and (max-width: 1200px){
+      font-size: 40px;
+    };
   `,
   section1: styled.div`
     margin: 25px 0 180px 0;
     padding-right: 30%;
+    @media screen and (max-width: 1200px){
+      padding: 0;
+      margin-bottom: 25px;
+    };
   `,
   title1: styled.h3`
     font-size: 22px;
@@ -62,6 +77,9 @@ export const InterestStyle = {
       ` : `
         3px solid transparent;
       `};
+      @media screen and (max-width: 800px){
+        ${!props.last && 'border-left: 3px solid var(--color-2);'};
+      };
     `};
     position: relative;
   `,

@@ -1,20 +1,21 @@
 'use client'
-import { accessData, faqData, howItWorks, interestTimeData, interestValues, products, supportersData, tractionData, trustData } from '@/assets/data'
-import NavigationComponent from '@/components/navigation'
-import Box from '@mui/material/Box';
-// styles
-import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
-// resources
-import FooterComponent from '@/components/footer'
+import moment from 'moment';
 import { useState } from 'react';
-import InputWidget from '@/assets/widgets/input';
+// styles
+import { AssetsStyle, PageStyle } from '@/styles/general'
 import { InterestStyle } from '@/styles/interest';
+// components
+import NavigationComponent from '@/components/navigation'
+import FooterComponent from '@/components/footer'
+// widgets
+import InputWidget from '@/assets/widgets/input';
+import FAQWidget from '@/assets/widgets/faq-item';
+// resources
+import { faqData, howItWorks, interestTimeData, interestValues } from '@/assets/data'
 import chart from '@/assets/icons/chart.svg'
 import bullet from '@/assets/icons/bullet.svg'
+// functions
 import { formatNumber, percentage } from '@/assets/functions';
-import { HomeStyle } from '@/styles/home';
-import moment from 'moment';
-import FAQWidget from '@/assets/widgets/faq-item';
 
 const Home = () => {
 
@@ -49,8 +50,11 @@ const Home = () => {
   };
 
   const time: any = inputs[0].value
-  const amountToSave = inputs[1].value
-  const timeSpan = inputs[2].value
+  const amountToSaveInitial = inputs[1].value
+  const timeSpanInitial = inputs[2].value
+
+  const amountToSave = amountToSaveInitial ? amountToSaveInitial : '2,000'
+  const timeSpan = timeSpanInitial ? timeSpanInitial : '3'
 
   const amountCalculated = Number(formatNumber(amountToSave, true)) * Number(timeSpan)
   const profit = percentage(amountCalculated, 10)
@@ -148,9 +152,9 @@ const Home = () => {
           </InterestStyle.heading1>
         </PageStyle.header>
         <InterestStyle.section1>
-          <PageStyle.grid spacing='0 100px'>
+          <PageStyle.grid mobile spacing='0 100px'>
             {interestValues.map((item, index) => (
-              <InterestStyle.item1 key={index} active={index === 0 || index === 1}>
+              <InterestStyle.item1 key={index} active={index === 0 || index === 1} last={index === interestValues.length - 1}>
                 <InterestStyle.bullet src={bullet} alt='bullet' />
                 <div>
                   <InterestStyle.title1>

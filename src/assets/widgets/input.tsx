@@ -1,14 +1,12 @@
 'use client'
-import { accessData, interestTimeData, products, supportersData, tractionData, trustData } from '@/assets/data'
-import TextField from '@mui/material/TextField';
+import { FC, useState } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 // styles
-import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
-// resources
-import { FC, useState } from 'react';
+import { AssetsStyle } from '@/styles/general'
 import { InputStyle } from '@/styles/widget';
+// types
 import { InputWidgetRules, InputWidgetSelectRules } from '../rules';
 
 const InputWidget: FC<InputWidgetRules> = ({ onChange, index, data }) => {
@@ -46,7 +44,6 @@ const InputWidget: FC<InputWidgetRules> = ({ onChange, index, data }) => {
     <>
       {data.label && <InputStyle.label>{data.label}</InputStyle.label>}
       <FormControl
-        fullWidth
         sx={{ '& .MuiInputBase-root': { 
           color: 'var(--color-white)',
           borderColor: 'var(--color-white)'

@@ -1,20 +1,58 @@
 'use client'
-import { accessData, products, supportersData, tractionData, trustData } from '@/assets/data'
+import { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// components
 import NavigationComponent from '@/components/navigation'
+import FooterComponent from '@/components/footer'
 // styles
 import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
 import { HomeStyle } from '@/styles/home'
 // resources
-import phone from '../assets/images/phone.png'
-import transparencyImage from '../assets/images/transparency.png'
-import send from '../assets/icons/send.svg'
-import send_white from '../assets/icons/send-white.svg'
-import arrow from '../assets/images/arrow.png'
-import preview from '../assets/images/preview.png'
-import FooterComponent from '@/components/footer'
+import { accessData, products, supportersData, tractionData, trustData } from '@/assets/data'
+import phone from '@/assets/images/phone.png'
+import transparencyImage from '@/assets/images/transparency.png'
+import send from '@/assets/icons/send.svg'
+import send_white from '@/assets/icons/send-white.svg'
+import arrow from '@/assets/images/arrow.png'
+import preview from '@/assets/images/preview.png'
+import { CareerStyle } from '@/styles/career';
+import play from '@/assets/images/play.png'
+import PeopleWidget from '@/assets/widgets/people';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const product = products[0]
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const indicatorRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const container: any = containerRef.current;
+    const indicator = indicatorRef.current;
+
+    const updateIndicator = () => {
+      const scrollProgress = container.scrollTop / (container.scrollHeight - container.clientHeight);
+      const scaleXValue = Math.max(scrollProgress, 0.10);
+      gsap.set(indicator, { scaleX: scaleXValue });
+    };
+
+    updateIndicator()
+
+    container.addEventListener('scroll', updateIndicator);
+    return () => {
+      container.removeEventListener('scroll', updateIndicator);
+    };
+  }, []);
+
+  const ref = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0)
+
+  useEffect(() => {
+    if (ref.current) {
+      const divHeight = ref.current.offsetHeight;
+      setHeight(divHeight);
+    }
+  }, []);
 
   return (
     <PageStyle.page>
@@ -46,33 +84,49 @@ const Home = () => {
         <PageStyle.header>
           <h2>Products</h2>
         </PageStyle.header>
-        <PageStyle.grid values='60% 40%'>
-          <div>
-            <HomeStyle.productTitle>{product.title}</HomeStyle.productTitle>
-            <h4>{product.subtitle}</h4>
-            <HomeStyle.productSubsubtitle>{product.subsubtitle}</HomeStyle.productSubsubtitle>
-            <HomeStyle.productListWrapper>
-              {product.data.map((item, index) => (
-                <HomeStyle.productListItem key={index}>
-                  <HomeStyle.check />
-                  {item}
-                </HomeStyle.productListItem>
-              ))}
-            </HomeStyle.productListWrapper>
-          </div>
-          <HomeStyle.productImageWrapper>
-            <HomeStyle.landingImage
-              src={product.image}
-              alt='Product'
-              priority
-            />
-          </HomeStyle.productImageWrapper>
-        </PageStyle.grid>
+        <HomeStyle.productScrollContainer height={height}>
+          <HomeStyle.productScrollWrapper ref={containerRef}>
+            {products.map((item, index) => (  
+              <HomeStyle.productScrollItem key={index}>
+                <PageStyle.grid values='60% 40%' ref={ref}>
+                  <div>
+                    <HomeStyle.productTitle>{item.title}</HomeStyle.productTitle>
+                    <h4>{item.subtitle}</h4>
+                    <HomeStyle.productSubsubtitle>{item.subsubtitle}</HomeStyle.productSubsubtitle>
+                    <HomeStyle.productListWrapper>
+                      {item.data.map((item, index) => (
+                        <HomeStyle.productListItem key={index}>
+                          <HomeStyle.check />
+                          {item}
+                        </HomeStyle.productListItem>
+                      ))}
+                    </HomeStyle.productListWrapper>
+                  </div>
+                  <HomeStyle.productImageWrapper>
+                    {item.comingSoon && <HomeStyle.productComingSoon>Coming Soon</HomeStyle.productComingSoon>}
+                    <HomeStyle.productImageContent>
+
+                    <HomeStyle.landingImage
+                      src={item.image}
+                      alt='Product'
+                      priority
+                    />
+                    </HomeStyle.productImageContent>
+                  </HomeStyle.productImageWrapper>
+                </PageStyle.grid>
+              </HomeStyle.productScrollItem>
+              
+            ))}
+          </HomeStyle.productScrollWrapper>
+        </HomeStyle.productScrollContainer>
+        <HomeStyle.productScrollIndicatorWrapper>
+          <HomeStyle.productScrollIndicator ref={indicatorRef} />
+        </HomeStyle.productScrollIndicatorWrapper>
       </PageStyle.section>
       
       <PageStyle.section spacing={2} backgroundColor='var(--color-white)' color='var(--color-5)'>
         <PageStyle.grid>
-          <div>
+          <HomeStyle.transparencyLeft>
             <PageStyle.header>
               <h2>We’re Keen On <TextStyle.text color='var(--color-7)'>Transparency</TextStyle.text></h2>
               <h4>Calculate your interests everytime you save on our platform</h4>
@@ -84,14 +138,14 @@ const Home = () => {
             >
               Get Started
             </AssetsStyle.button>
-          </div>
-          <div>
+          </HomeStyle.transparencyLeft>
+          <HomeStyle.transparencyRight>
             <HomeStyle.transparencyImage
               src={transparencyImage}
               alt='Product'
               priority
             />
-          </div>
+          </HomeStyle.transparencyRight>
         </PageStyle.grid>
       </PageStyle.section>
       
@@ -149,14 +203,25 @@ const Home = () => {
           <p>Listen to testimonials from Ardilla users building wealth</p>
         </PageStyle.header>
         <PageStyle.grid amount={3} spacing='50px'>
-          {trustData.map((item, index) => <HomeStyle.trustImage backgroundImage={item} key={index} />)}
+          {trustData.map((item, index) => <PeopleWidget backgroundImage={item} key={index} />)}
         </PageStyle.grid>
       </PageStyle.section>
       
       <PageStyle.section spacing={6} center backgroundColor='var(--color-10)' color='var(--color-5)'>
         <HomeStyle.supportersWrapper>
-          <HomeStyle.supporters>
-            {supportersData.map((item, index) => <AssetsStyle.icon alternative={index === 0} alt={item.name} src={item.logo} type={2} key={index} />)}
+          <HomeStyle.supporters alt>
+            <HomeStyle.supporters>
+              {supportersData.map((item, index) => (
+                <AssetsStyle.icon
+                  last={index === supportersData.length - 1}
+                  alternative={index === 0}
+                  alt={item.name}
+                  src={item.logo}
+                  type={2}
+                  key={index}
+                />
+              ))}
+            </HomeStyle.supporters>
             <HomeStyle.supportersTag>Press reviews</HomeStyle.supportersTag>
           </HomeStyle.supporters>
         </HomeStyle.supportersWrapper>

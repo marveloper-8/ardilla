@@ -1,28 +1,17 @@
 'use client'
-import { accessData, careerLandingData, cultureData, expectationsData, faqData, hireData, howItWorks, interestTimeData, interestValues, peopleData, perksData, products, rolesData, supportersData, tractionData, trustData, valuesData } from '@/assets/data'
+// components
 import NavigationComponent from '@/components/navigation'
-import Box from '@mui/material/Box';
+import FooterComponent from '@/components/footer'
 // styles
 import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
+import { LandingStyle } from '@/styles/landing';
 // resources
-import FooterComponent from '@/components/footer'
-import { useEffect, useRef, useState } from 'react';
-import InputWidget from '@/assets/widgets/input';
-import { InterestStyle } from '@/styles/interest';
-import culture from '@/assets/images/culture.png'
+import { expectationsData } from '@/assets/data'
 import more from '@/assets/images/more.png'
 import portalPhone from '@/assets/images/portal-phone.png'
-import image from '@/assets/images/image.png'
 import portalBackground from '@/assets/images/portal-background.png'
 import portalBackground2 from '@/assets/images/portal-background.2.png'
 import send from '@/assets/icons/send.2.svg'
-import code from '@/assets/icons/code.svg'
-import { formatNumber, percentage } from '@/assets/functions';
-import { HomeStyle } from '@/styles/home';
-import moment from 'moment';
-import FAQWidget from '@/assets/widgets/faq-item';
-import { CareerStyle } from '@/styles/career';
-import { LandingStyle } from '@/styles/landing';
 
 const Home = () => {
 

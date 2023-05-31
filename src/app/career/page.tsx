@@ -1,25 +1,19 @@
 'use client'
-import { accessData, careerLandingData, cultureData, faqData, hireData, howItWorks, interestTimeData, interestValues, peopleData, perksData, products, rolesData, supportersData, tractionData, trustData, valuesData } from '@/assets/data'
+// components
 import NavigationComponent from '@/components/navigation'
-import Box from '@mui/material/Box';
-// styles
-import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
-// resources
 import FooterComponent from '@/components/footer'
-import { useState } from 'react';
-import InputWidget from '@/assets/widgets/input';
-import { InterestStyle } from '@/styles/interest';
+// styles
+import { PageStyle } from '@/styles/general'
+import { HomeStyle } from '@/styles/home';
+import { CareerStyle } from '@/styles/career';
+// resources
+import { careerLandingData, cultureData, hireData, peopleData, perksData, rolesData, valuesData } from '@/assets/data'
 import culture from '@/assets/images/culture.png'
-import play from '@/assets/images/play.png'
 import image from '@/assets/images/image.png'
 import perksBackground from '@/assets/images/perks-background.png'
-import bullet from '@/assets/icons/bullet.svg'
 import code from '@/assets/icons/code.svg'
-import { formatNumber, percentage } from '@/assets/functions';
-import { HomeStyle } from '@/styles/home';
-import moment from 'moment';
-import FAQWidget from '@/assets/widgets/faq-item';
-import { CareerStyle } from '@/styles/career';
+// widgets
+import PeopleWidget from '@/assets/widgets/people';
 
 const Home = () => {
   
@@ -87,24 +81,12 @@ const Home = () => {
         <CareerStyle.peopleWrapper>
           <PageStyle.grid spacing='40px 80px'>
             {peopleData.map((item, index) => (
-              <PageStyle.grid key={index} spacing='18px' values='60% 40%'>
-                <CareerStyle.peoplePreview backgroundImage={item.image}>
-                  <CareerStyle.peoplePreviewBackground />
-                  <CareerStyle.peoplePreviewContent>
-                    <PageStyle.grid amount={3} spacing='15px' row>
-                      <div />
-                      <CareerStyle.peoplePreviewPlay>
-                        <CareerStyle.peoplePreviePlayImage src={play} alt='Play' />
-                      </CareerStyle.peoplePreviewPlay>
-                      <div>
-                        <CareerStyle.peopleTitle>
-                          {item.name}
-                        </CareerStyle.peopleTitle>
-                        <p>{item.position}</p>
-                      </div>
-                    </PageStyle.grid>
-                  </CareerStyle.peoplePreviewContent>
-                </CareerStyle.peoplePreview>
+              <PageStyle.grid key={index} mobile spacing='18px' values='60% 40%'>
+                <PeopleWidget alt 
+                  backgroundImage={item.image} 
+                  name={item.name}
+                  position={item.position}
+                />
                 <CareerStyle.peopleComment>{item.coomment}</CareerStyle.peopleComment>
               </PageStyle.grid>
             ))}
@@ -112,14 +94,15 @@ const Home = () => {
         </CareerStyle.peopleWrapper>
       </PageStyle.section>
       
-      <PageStyle.section type='career' center spacing={4} backgroundColor='var(--color-12)' color='var(--color-white)'>
+      <PageStyle.section type='career' backgroundImage={perksBackground} center spacing={4} backgroundColor='var(--color-12)' color='var(--color-white)'>
         <CareerStyle.perksSubtitle>Beyond a competitive salary, we offer so much more in support and necessary tools needed to get the best results.</CareerStyle.perksSubtitle>
         <CareerStyle.perksTitle>Perks</CareerStyle.perksTitle>
-        <CareerStyle.perksList backgroundImage={perksBackground}>
+        <CareerStyle.perksList>
           <PageStyle.grid amount={3} spacing='50px'>
             {perksData.map((item, index) => (
-              <CareerStyle.perk key={index}>
-                <CareerStyle.perksIcon src={item.icon} alt='' />
+              <CareerStyle.perk alternative key={index}>
+                <CareerStyle.perksIcon alternative src={item.icon} alt='' />
+                <CareerStyle.perksIcon2 src={item.icon2} alt='' />
                 <CareerStyle.perkTitle>{item.title}</CareerStyle.perkTitle>
                 <p>{item.description}</p>
               </CareerStyle.perk>
@@ -142,7 +125,7 @@ const Home = () => {
           </PageStyle.grid>
         </CareerStyle.roles>
         <CareerStyle.roleIndicators>
-          <PageStyle.grid amount={3} spacing='20px'>
+          <PageStyle.grid amount={3} mobile2 mobile spacing='20px'>
             {Array(3).fill('').map((item, index) => <CareerStyle.roleIndicator key={index} alt={index === 0} />)}
           </PageStyle.grid>
         </CareerStyle.roleIndicators>

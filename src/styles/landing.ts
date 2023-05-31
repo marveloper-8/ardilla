@@ -10,15 +10,46 @@ export const LandingStyle = {
     right: 0;
     z-index: 10;
     bottom: -100px;
+    @media screen and (max-width: 1600px){
+      width: 20%;
+    };
+    @media screen and (max-width: 1000px){
+      height: 300px;
+      width: auto;
+    };
   `,
   landingSection: styled.div`
     padding: 0 27.5%;
+    @media screen and (max-width: 1600px){
+      padding: 0 25%;
+    };
+    @media screen and (max-width: 1400px){
+      padding: 0 17.5%;
+      padding-bottom: 100px;
+    };
+    @media screen and (max-width: 1000px){
+      padding: 0 100px;
+      padding-bottom: 175px;
+    };
+    @media screen and (max-width: 800px){
+      padding: 0;
+      padding-bottom: 175px;
+    };
   `,
   landingTitle: styled.h2`
     font-size: 100px;
+    @media screen and (max-width: 1000px){
+      font-size: 50px;
+    };
   `,
   landingSubtitle: styled.p`
     padding: 0 100px;
+    @media screen and (max-width: 1000px){
+      padding: 0 50px;
+    };
+    @media screen and (max-width: 800px){
+      padding: 0;
+    };
   `,
   form: styled.form`
     background: var(--color-white);
@@ -32,6 +63,7 @@ export const LandingStyle = {
     border-radius: 30px 30px 0 0;
     height: 50px;
     background: var(--color-white);
+    border: 1px solid var(--color-white);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -58,6 +90,9 @@ export const LandingStyle = {
         background-size: cover;
       `}
     `};
+    @media screen and (max-width: 800px){
+      font-size: 20px;
+    };
   `,
   circle: styled.div<TabRules>`
     border: 6px solid var(--color-white);

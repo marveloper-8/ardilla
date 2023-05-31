@@ -1,25 +1,24 @@
-'use client'
-import { accessData, interestTimeData, products, supportersData, tractionData, trustData } from '@/assets/data'
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-// styles
-import { AssetsStyle, PageStyle, TextStyle } from '@/styles/general'
-// resources
 import { FC, useState } from 'react';
-import { FaqStyle, InputStyle } from '@/styles/widget';
+// styles
+import { FaqStyle } from '@/styles/widget';
+// types
 import { FAQRules } from '../rules';
 
 const FAQWidget: FC<FAQRules> = ({ data }) => {
 
-  const [isFocused, setIsFocused] = useState(false);
+  const [active, setActive] = useState(false);
 
   return (
-    <FaqStyle.wrapper>
-      <p>{data.question}</p>
-      <FaqStyle.icon />
-    </FaqStyle.wrapper>
+    <>
+      <FaqStyle.wrapper active={active} onClick={() => setActive(!active)}>
+        <p>{data.question}</p>
+        <FaqStyle.icon />
+      </FaqStyle.wrapper>
+      <FaqStyle.content active={active}>
+        This is where answers to Frequently Asked Questions lie so users can read and gain understanding of what is being done on the app
+      </FaqStyle.content>
+    </>
+    
   )
 }
 

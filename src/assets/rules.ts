@@ -1,6 +1,5 @@
 import { StaticImageData } from 'next/image';
 import { RefObject } from 'react';
-import { interestTimeData } from './data';
 
 export interface NavItemRules {
   title: string,
@@ -35,6 +34,13 @@ export interface GridRules {
   amount?: number | null,
   spacing?: string | null,
   row?: boolean | null,
+  mobile?: boolean | null,
+  mobile2?: boolean | null,
+  alt?: boolean | null,
+}
+
+export interface ProductRules {
+  height?: number | null,
 }
 
 export interface TextRules {
@@ -51,6 +57,7 @@ export interface IconRules {
   type?: number | string | null,
   alternative?: boolean | null,
   alt2?: boolean,
+  last?: boolean,
 }
 
 export interface LabelRules {
@@ -59,13 +66,18 @@ export interface LabelRules {
 
 export interface TabImageRules {
   backgroundImage: StaticImageData,
+  name?: string,
+  position?: string,
+  alt?: boolean,
 }
 
 export interface TabRules {
   color?: string | null,
   background?: string | null,
   alt?: boolean | null,
+  alt2?: boolean | null,
   backgroundImage?: StaticImageData | null,
+  active?: boolean,
 }
 
 export interface FooterRules {
@@ -100,6 +112,11 @@ export interface NumberFormatterRules {
 }
 
 export interface InterestsItemRules {
+  active?: boolean,
+  last?: boolean,
+}
+
+export interface PeopleRules {
   active?: boolean
 }
 
@@ -110,13 +127,26 @@ export interface FAQRules {
   }
 }
 
+export interface FAQContentRules {
+  active?: boolean
+}
+
 export interface NavigationRules {
   alt?: boolean,
-  landing?: boolean
+  landing?: boolean,
+}
+
+export interface ResponsivenessRules {
+  orientation?: string,
 }
 
 export interface CareerRules {
   alt?: boolean,
+  alternative?: boolean | null,
+}
+
+export interface Career2Rules {
+  alternative?: boolean | null,
 }
 
 export interface CareerTextRules {

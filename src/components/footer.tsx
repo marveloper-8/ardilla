@@ -1,13 +1,13 @@
-import { footerData, primaryMenuItems, socialsData, socialsData2 } from "@/assets/data"
-import { FooterRules, PageRules } from "@/assets/rules";
-import NavItemWidget from "@/assets/widgets/nav-item"
-import ProfilePictureWidget from "@/assets/widgets/profile-picture";
-import { FooterStyle, NavigationStyle } from "@/styles/components"
-import { AssetsStyle, PageStyle } from "@/styles/general"
 import { FC, useEffect, useRef, useState } from "react";
+// rules
+import { FooterRules } from "@/assets/rules";
+// styles
+import { FooterStyle } from "@/styles/components"
+import { AssetsStyle, PageStyle } from "@/styles/general"
 // resources
-import background from '../assets/images/footer-background.png'
-import phone from '../assets/images/footer.png'
+import background from '@/assets/images/footer-background.png'
+import phone from '@/assets/images/footer.png'
+import { footerData, socialsData, socialsData2 } from "@/assets/data"
 
 const FooterComponent: FC<FooterRules> = ({alt}) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ const FooterComponent: FC<FooterRules> = ({alt}) => {
     <FooterStyle.wrapper alt={alt}>
       {alt ? (
         <FooterStyle.copyrightSocials>
-          <div>&copy; 2022 Ardilla. All right reserved</div>
+          <FooterStyle.copyright>&copy; 2022 Ardilla. All right reserved</FooterStyle.copyright>
           <FooterStyle.socials>
             {socialsData2.map((item, index) => (
               <FooterStyle.social src={item.logo} key={index} alt={item.name} />
@@ -74,7 +74,7 @@ const FooterComponent: FC<FooterRules> = ({alt}) => {
           </PageStyle.grid>
           <FooterStyle.bottom>
             <FooterStyle.copyrightSocials>
-              <div>&copy; 2022 Ardilla. All right reserved</div>
+              <FooterStyle.copyright>&copy; 2022 Ardilla. All right reserved</FooterStyle.copyright>
               <FooterStyle.socials>
                 {socialsData.map((item, index) => (
                   <FooterStyle.social src={item.logo} key={index} alt={item.name} />

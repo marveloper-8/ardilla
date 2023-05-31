@@ -105,6 +105,8 @@
     --color-5: #3D0072;
     --color-6: #FFFDF2;
     --color-7: #E8356D;
+    --color-7-1: #E8356Dcc;
+    --color-7-2: #E8356D99;
     --color-8: #29014B;
     --color-9: #F3F4F6;
     --color-10: #F8FAFC;
@@ -145,11 +147,17 @@ a {
 h1 {
   font-weight: 900;
   font-size: 95px;
+  @media screen and (max-width: 1400px){
+    font-size: 65px;
+  };
 }
 
 h2 {
   font-weight: 900;
   font-size: 80px;
+  @media screen and (max-width: 1400px){
+    font-size: 50px;
+  };
 }
 
 h3 {

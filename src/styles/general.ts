@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Image from 'next/image'
+// rules
 import { AiFillCaretDown, AiOutlineDown } from "react-icons/ai";
-import { ButtonRules, GridRules, HeaderRules, IconRules, LabelRules, SectionRules, TextRules } from "@/assets/rules";
+// types
+import { ButtonRules, GridRules, HeaderRules, IconRules, LabelRules, SectionRules, TextRules, ResponsivenessRules } from "@/assets/rules";
 
 export const PageStyle = {
   page: styled.main`
@@ -40,13 +42,23 @@ export const PageStyle = {
         `};
       ` : props.type === 'career' ? `
         ${props.spacing === 1 ? `
-          padding: 0;
+          padding: 0!important;
         ` : props.spacing === 2 ? `
           padding: 120px 135px 150px 135px;
         ` : props.spacing === 3 ? `
           padding: 120px 125px;
         ` : props.spacing === 4 ? `
           padding: 155px 45px 0 45px;
+          ${props.backgroundImage && `
+            background-image: url(${props.backgroundImage.src});
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom;
+          `};
+          @media screen and (max-width: 1200px){
+            background-image: none;
+          };
+          padding-bottom: 0!important;
         ` : props.spacing === 5 ? `
           padding: 120px 145px 125px 130px;
         ` : props.spacing === 6 ? `
@@ -54,14 +66,23 @@ export const PageStyle = {
         ` : props.spacing === 7 ? `
           padding: 137px 136px 370px 120px;
           text-align: center;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 370px!important;
+          };
         ` : `
           padding: 135px 20% 165px 20%;
         `};
       ` : props.type === 'interest' ? `
         ${props.spacing === 1 ? `
           padding: 155px 135px 350px 135px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 200px!important;
+          };
         ` : `
           padding: 105px 80px 0 135px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 0!important;
+          };
         `};
       ` : `
         ${props.spacing === 1 ? `
@@ -70,19 +91,42 @@ export const PageStyle = {
           padding: 130px 135px 195px 135px;
         ` : props.spacing === 3 ? `
           padding: 120px 200px 0 130px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 0!important;
+          };
         ` : props.spacing === 4 ? `
           padding: 120px 135px 0 135px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 0!important;
+          };
         ` : props.spacing === 5 ? `
           padding: 120px 75px 180px 75px;
         ` : props.spacing === 6 ? `
           padding: 110px 240px 150px 240px;
         ` : props.spacing === 7 ? `
           padding: 110px 135px 375px 135px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 200px!important;
+          };
         ` : `
           padding: 65px 260px 0 260px;
+          @media screen and (max-width: 1400px){
+            padding-bottom: 0!important;
+          };
         `};
       `};
+      @media screen and (max-width: 1400px){
+        padding: 50px;
+      };
       ${props.type === 'landing' && 'font-family: "Clash Display"'};
+      @media screen and (min-width: 1700px){
+        padding-left: 20vw;
+        padding-right: 20vw;
+      };
+      @media screen and (max-width: 1400px){
+        padding-left: 20px;
+        padding-right: 20px;
+      };
     `};
   `,
   grid: styled.div<GridRules>`
@@ -91,9 +135,31 @@ export const PageStyle = {
       grid-template-${props.row ? 'rows' : 'columns'}: ${props.values ? `
         ${props.values}
       ` : `
-        repeat(${props.amount ? props.amount : 2}, 1fr)
+        ${props.mobile2 ? `
+          repeat(${props.amount ? props.amount : 2}, 1fr)!important;
+        ` : `
+          repeat(${props.amount ? props.amount : 2}, 1fr);
+        `};
       `};
-      ${props.spacing && `grid-gap: ${props.spacing}`};
+      ${props.spacing && `
+        ${props.mobile ? `
+          grid-gap: ${props.spacing}!important;
+        ` : `
+          grid-gap: ${props.spacing};
+        `};
+      `};
+      @media screen and (max-width: 1200px){
+        grid-gap: 100px 50px;
+      };
+      @media screen and (max-width: 1200px){
+        grid-gap: 50px 25px;
+        ${props.alt && `
+          grid-template-columns: 1fr 1fr;
+        `};
+      };
+      @media screen and (max-width: 800px){
+        grid-template-${props.row ? 'rows' : 'columns'}: 1fr;
+      };
     `};
   `,
   header: styled.header<HeaderRules>`
@@ -102,8 +168,14 @@ export const PageStyle = {
         padding-bottom: 60px;
       ` : props.spacing === 2 ? `
         padding-bottom: 140px;
+        @media screen and (max-width: 1400px){
+          padding-bottom: 20px;
+        };
       ` : `
         padding-bottom: 40px;
+        @media screen and (max-width: 1400px){
+          padding-bottom: 20px;
+        };
       `};
     `};
   `,
@@ -122,6 +194,9 @@ export const TextStyle = {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+    @media screen and (max-width: 1400px){
+      line-height: 75px;
+    };
   `,
   text: styled.a<TextRules>`
     ${props => `
@@ -149,9 +224,26 @@ export const TextStyle = {
 };
 
 export const AssetsStyle = {
-  logo: styled(Image)`
+  logo: styled(Image)<ResponsivenessRules>`
     width: 80px;
     margin-right: 113px - 58px;
+    ${props => `
+      ${props.orientation === 'mobile' ? `
+        @media screen and (max-width: 1200px){
+          display: block;
+          width: 150px;
+          height: auto;
+          margin-bottom: 50px;
+        };
+        @media screen and (min-width: 1200px){
+          display: none;
+        };
+      ` : `
+        @media screen and (max-width: 1200px){
+          display: block;
+        };
+      `};
+    `};
   `,
   icon: styled(Image)<IconRules>`
     ${props => `
@@ -160,11 +252,19 @@ export const AssetsStyle = {
         height: 150px;
         position: relative;
         left: -75px;
+        @media screen and (max-width: 800px){
+          left: -60px;
+        };
       ` : props.type === 2 ? `
         width: auto;
         height: 65px;
+        @media screen and (max-width: 800px){
+          height: 30px;
+        };
         ${props.alternative ? `
           margin-right: 50px;
+        ` : props.last ? `
+          margin: 0;
         ` : `
           margin-right: 65px;
         `};

@@ -1,3 +1,4 @@
+import { FAQContentRules } from "@/assets/rules";
 import { AiOutlinePlus } from "react-icons/ai";
 import styled from "styled-components";
 
@@ -19,7 +20,7 @@ export const InputStyle = {
 };
 
 export const FaqStyle = {
-  wrapper: styled.div`
+  wrapper: styled.div<FAQContentRules>`
     background: var(--color-grey-2);
     padding: 32px 37px;
     color: var(--color-2);
@@ -27,11 +28,44 @@ export const FaqStyle = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 32px;
     font-size: 16px;
     cursor: pointer;
+    transition: .5s ease;
+    @media screen and (max-width: 800px){
+      padding: 10px;
+    };
+    ${props => `
+      ${props.active && `
+        border-radius: 16px 16px 0 0;
+      `};
+    `};
+  `,
+  content: styled.div<FAQContentRules>`
+    background: var(--color-4);
+    color: var(--color-2);
+    border-radius: 0 0 16px 16px;
+    margin-bottom: 32px;
+    font-size: 16px;
+    transition: .5s ease;
+    overflow: hidden;
+    ${props => `
+      ${props.active ? `
+        padding: 32px 37px;
+        height: auto;
+        @media screen and (max-width: 800px){
+          padding: 10px;
+        };
+      ` : `
+        padding: 0 37px;
+        height: 0;
+        @media screen and (max-width: 800px){
+          padding: 0 10px;
+        };
+      `};
+    `};
   `,
   icon: styled(AiOutlinePlus)`
     color: var(--color-black);
+    margin-left: 50px;
   `,
 };

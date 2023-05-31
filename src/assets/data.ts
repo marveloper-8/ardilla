@@ -1,4 +1,8 @@
-import phone2 from './images/phone.2.png'
+import product1 from './images/product.1.png'
+import product2 from './images/product.2.png'
+import product3 from './images/product.3.png'
+import product4 from './images/product.4.png'
+import product5 from './images/product.5.png'
 import dib from './icons/dib.svg'
 import dreams from './icons/dreams.svg'
 import vault from './icons/vault.svg'
@@ -30,6 +34,12 @@ import perk3 from './icons/perk.3.svg'
 import perk4 from './icons/perk.4.svg'
 import perk5 from './icons/perk.5.svg'
 import perk6 from './icons/perk.6.svg'
+import perkWhite1 from './icons/perk-white.1.svg'
+import perkWhite2 from './icons/perk-white.2.svg'
+import perkWhite3 from './icons/perk-white.3.svg'
+import perkWhite4 from './icons/perk-white.4.svg'
+import perkWhite5 from './icons/perk-white.5.svg'
+import perkWhite6 from './icons/perk-white.6.svg'
 import role1 from './images/role.1.png'
 import role2 from './images/role.2.png'
 import role3 from './images/role.3.png'
@@ -77,7 +87,8 @@ export const products = [
     title: 'Save',
     subtitle: 'Save at your own pace!',
     subsubtitle: 'Save your money daily, weekly, or monthly. No pressure. We work at your pace',
-    image: phone2,
+    image: product1,
+    comingSoon: false,
     data: [
       'Create Unlimted savings plans',
       'Withdraw anytime',
@@ -86,7 +97,66 @@ export const products = [
       'Accountability profile',
       'Activity and report'
     ]
-  }
+  },
+  {
+    title: 'Learn',
+    subtitle: 'Financial freedom begins with You and Ardilla',
+    subsubtitle: 'Ardila offers wealth-building tips from great financial minds to help you get to where you need to be.',
+    image: product2,
+    comingSoon: false,
+    data: [
+      'Learn to invest in 2hrs',
+      'Get a portfolio manager',
+      'Stay on top of your finances',
+      'Learn with family and friends',
+      'Earn points and reward'
+    ]
+  },
+  {
+    title: 'Invest',
+    subtitle: 'Multiply your finances',
+    subsubtitle: 'Investment opportunities that gets you closer to financial freedom',
+    image: product3,
+    comingSoon: true,
+    data: [
+      'Portfolio mangement',
+      'Track your returns',
+      'Risk Assessment',
+      'Vetted Investment opportuinities',
+      'Invest within your risk appetite',
+      'Invest in Naira and Dollars'
+    ]
+  },
+  {
+    title: 'Budget',
+    subtitle: 'Plan your money',
+    subsubtitle: 'Every good budget starts with a good plan for your money',
+    image: product4,
+    comingSoon: true,
+    data: [
+      'Save as you spend',
+      'Track your expenses',
+      'Organize your finances',
+      'Sync and share budgets',
+      'Financial guide',
+      'Better decision-making'
+    ]
+  },
+  {
+    title: 'Insurance',
+    subtitle: 'Protect your interest',
+    subsubtitle: 'Stay protected, live freely',
+    image: product5,
+    comingSoon: true,
+    data: [
+      'Vehicle insurance',
+      'Home insurance',
+      'Mutual Insurance',
+      'Life Insurance',
+      'Health Insurance',
+      'Travel Insurance'
+    ]
+  },
 ]
 
 export const accessData = [
@@ -426,31 +496,37 @@ export const peopleData = [
 export const perksData = [
   {
     icon: perk1,
+    icon2: perkWhite1,
     title: 'Its a vibe',
     description: 'Our work culture is a vibe and more.'
   },
   {
     icon: perk2,
+    icon2: perkWhite2,
     title: 'Cool gadgets',
     description: 'You get to work with cool new gadgets.'
   },
   {
     icon: perk3,
+    icon2: perkWhite3,
     title: 'Health benefits',
     description: 'We know health is important. So we provided easy access and affordable health benefits.'
   },
   {
     icon: perk4,
+    icon2: perkWhite4,
     title: 'Team Bounding',
     description: 'We always make out time for fun and getting to know your team mates better.'
   },
   {
     icon: perk5,
+    icon2: perkWhite5,
     title: 'Diversity',
     description: 'We promote diversity of ideas and people. Anyone from anywhere is welcome.'
   },
   {
     icon: perk6,
+    icon2: perkWhite6,
     title: 'Education and career progression',
     description: 'We offer you opportunities to grow, learn, and advance in your career.'
   },
