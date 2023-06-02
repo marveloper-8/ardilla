@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styled from "styled-components";
 // types
-import { FooterRules, NavigationRules, TabImageRules, ResponsivenessRules } from "@/assets/rules";
+import { FooterRules, PopupRules, NavigationRules, TabImageRules, ResponsivenessRules } from "@/assets/rules";
 
 export const NavigationStyle = {
   wrapper: styled.nav<NavigationRules>`
@@ -235,5 +235,78 @@ export const FooterStyle = {
   social: styled(Image)`
     width: 30px;
     height: 30px;
+  `,
+};
+
+export const PopupStyle = {
+  wrapper: styled.footer<PopupRules>`
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-white-1);
+    position: fixed;
+    left: 0;
+    z-index: 100;
+    transition: .5s ease;
+    ${props => `
+      ${props.active ? `
+        top: 0;
+      ` : `
+        top: 150vh;
+      `};
+    `};
+  `,
+  content: styled.div`
+    padding: 50px 60px;
+    background-color: var(--color-white);
+    box-shadow: var(--profile-picture-shadow);
+    border-radius: 20px;
+    color: var(--color-grey);
+    text-align: center;
+  `,
+  navigate: styled.div`
+    margin-bottom: 15px;
+    color: var(--color-grey-3);
+    text-align: left;
+    align-items: center;
+    display: flex;
+    gap: 10px;
+  `,
+  contentInner: styled.div`
+    padding: 0 65px;
+    @media screen and (max-width: 800px){
+      padding: 0;
+    };
+  `,
+  icon: styled(Image)`
+    width: 100%;
+    height: auto;
+  `,
+  title: styled.h2`
+    font-size: 25px;
+    line-height: 32px;
+    color: var(--color-green-4);
+    padding: 20px 0 45px 0;
+  `,
+  icon2: styled(Image)`
+    height: 25px;
+    width: auto;
+  `,
+  subtitle: styled.div`
+    color: var(--color-grey);
+    width: 60%;
+    margin: auto;
+  `,
+  socialsWrapper: styled.div`
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+  `,
+  socials: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 15px;
   `,
 };

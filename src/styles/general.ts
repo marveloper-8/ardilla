@@ -352,7 +352,8 @@ export const AssetsStyle = {
     outline: none;
     border: none;
     padding: 20px 30px;
-    &:placeholder{
+    color: var(--color-2);
+    &::placeholder{
       color: var(--color-grey);
     };
   `,

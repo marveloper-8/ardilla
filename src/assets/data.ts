@@ -58,6 +58,9 @@ import expectations8 from './images/expectations.8.png'
 import instagram2 from './icons/instagram.2.svg'
 import facebook2 from './icons/facebook.2.svg'
 import twitter2 from './icons/twitter.2.svg'
+import instagram3 from './icons/instagram.3.svg'
+import facebook3 from './icons/facebook.3.svg'
+import twitter3 from './icons/twitter.3.svg'
 
 export const primaryMenuItems = [
   {
@@ -323,6 +326,21 @@ export const socialsData2 = [
   },
   {
     logo: twitter2,
+    name: 'Twitter'
+  }
+]
+
+export const socialsData3 = [
+  {
+    logo: instagram3,
+    name: 'Instagram'
+  },
+  {
+    logo: facebook3,
+    name: 'Facebook'
+  },
+  {
+    logo: twitter3,
     name: 'Twitter'
   }
 ]

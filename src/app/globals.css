@@ -80,13 +80,16 @@
     --gradient-color-3: linear-gradient(105.27deg, #530CB4 19.49%, #EA00BE 129.84%);
 
     --color-white: #ffffff;
+    --color-white-1: #ffffffcc;
     --color-black: #000000;
     --color-grey: #9CA3AF;
     --color-grey-2: #F9FAFB;
+    --color-grey-3: #4B5563;
     --color-teal: #0D9488;
     --color-green: #D2FFDE;
     --color-green-2: #33593D;
     --color-green-3: #2A332C;
+    --color-green-4: #22C55E;
     --color-purple: #C8C1FD;
     --color-purple-2: #35298A;
     --color-purple-3: #282733;

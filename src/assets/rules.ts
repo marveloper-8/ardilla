@@ -85,6 +85,11 @@ export interface FooterRules {
   alt?: boolean
 }
 
+export interface PopupRules {
+  active?: boolean,
+  setActive?: Function | any
+}
+
 export interface InputRules {
   offset?: number | null,
 }
